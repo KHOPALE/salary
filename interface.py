@@ -36,20 +36,10 @@ def predict_salary():
                                         salary, salary_currency, employee_residence,
                                         remote_ratio,company_location,company_size)
             dssalary_res = DataScienceSalary_res.get_predicted_res()
-            DataScienceSalary_res.database()
+            # DataScienceSalary_res.database()
 
-            # salary_pre= predict_salary(work_year, experience_level,
-            #                               employment_type, job_title,
-            #                             salary, salary_currency, employee_residence,
-            #                             remote_ratio,company_location,company_size)
-            # prediction1 = salary_pre.predict_salary()
-            # salary_pre.database()
+            
 
-            # return  jsonify({"Result" : f"Hotal : {pred_res}"})
-            # if pred_res == 0:
-            #     return render_template('index.html',prediction = 'Cancelled')
-            # else:
-            #     return render_template('index.html',prediction = 'Not Cancelled')
             return  render_template('index1.html', prediction = dssalary_res)
 
 
@@ -69,11 +59,11 @@ def predict_salary():
             company_location = data('company_location')
             company_size=data('company_size')
 
-            # DataScienceSalary_res = DataScienceSalary(work_year, experience_level,
-            #                               employment_type, job_title,
-            #                             salary, salary_currency, employee_residence,
-            #                             remote_ratio,company_location,company_size)
-            # dssalary_res = DataScienceSalary_res.get_predicted_res()
+            DataScienceSalary_res = DataScienceSalary(work_year, experience_level,
+                                          employment_type, job_title,
+                                        salary, salary_currency, employee_residence,
+                                        remote_ratio,company_location,company_size)
+            dssalary_res = DataScienceSalary_res.get_predicted_res()
 
             # salary_pre= predict_salary(work_year, experience_level,
             #                               employment_type, job_title,
@@ -82,24 +72,14 @@ def predict_salary():
             # prediction1 = salary_pre.predict_salary()
             # salary_pre.database()
 
-            DataScienceSalary_res = DataScienceSalary(work_year, experience_level,
-                                          employment_type, job_title,
-                                        salary, salary_currency, employee_residence,
-                                        remote_ratio,company_location,company_size)
-            dssalary_res = DataScienceSalary_res.get_predicted_res()
-            DataScienceSalary_res.database()
+            # DataScienceSalary_res = DataScienceSalary(work_year, experience_level,
+            #                               employment_type, job_title,
+            #                             salary, salary_currency, employee_residence,
+            #                             remote_ratio,company_location,company_size)
+            # dssalary_res = DataScienceSalary_res.get_predicted_res()
+            # DataScienceSalary_res.database()
             return  render_template('index1.html', prediction = dssalary_res)
 
-
-             
-
-            # return  jsonify({"Result" : f"Hotal Reservation status : {pred_res}"})
-            # if pred_res == 0:
-            #     return render_template('index.html',prediction = 'Cancelled')
-            # else:
-            #     return render_template('index.html',prediction = 'Not Cancelled')
-            # return  render_template('index1.html',prediction =dssalary_res)
-        
             
     except:
         print(traceback.print_exc())

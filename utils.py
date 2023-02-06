@@ -3,7 +3,7 @@ import json
 import config1
 import numpy as np
 import pandas as pd
-import pymongo
+# import pymongo
 
 class DataScienceSalary():
 
@@ -22,14 +22,12 @@ class DataScienceSalary():
        self.company_location = company_location
        self.company_size = company_size
 
-    def __database_init(self):
-        mongo_client = pymongo.MongoClient("mongodb://localhost:27017")
-        database_name = 'salarydata1_db'
-        db = mongo_client[database_name]
-        self.collection_user_input = db['user_input']
-        # collection_user = db['user_details']
-        # collection_names = db.list_collection_names()
-        # collection_names
+    # def __database_init(self):
+    #     mongo_client = pymongo.MongoClient("mongodb://localhost:27017")
+    #     database_name = 'salarydata1_db'
+    #     db = mongo_client[database_name]
+    #     self.collection_user_input = db['user_input']
+        
 
        
 
@@ -96,19 +94,19 @@ class DataScienceSalary():
 
 
         
-    def database(self):
-        self.get_predicted_res()
-        self. __database_init()
-        self.collection_user_input.insert_one({
-            "work_year" :self.work_year, "experience_level": self.experience_level,"employment_type":self.employment_type,"job_title" :self.job_title,
-            "salary" : self.salary,"salary_currency" : self.salary_currency, "employee_residence" :self.employee_residence, "remote_ratio": self.remote_ratio,
-            "company_location" :self.company_location,
-            "company_size" :self.company_size})
+    # def database(self):
+    #     self.get_predicted_res()
+    #     self. __database_init()
+    #     self.collection_user_input.insert_one({
+    #         "work_year" :self.work_year, "experience_level": self.experience_level,"employment_type":self.employment_type,"job_title" :self.job_title,
+    #         "salary" : self.salary,"salary_currency" : self.salary_currency, "employee_residence" :self.employee_residence, "remote_ratio": self.remote_ratio,
+    #         "company_location" :self.company_location,
+    #         "company_size" :self.company_size})
         
 
     
 
 if __name__ == '__main__':
     cls = DataScienceSalary('2020','EN','FT','Data Scientist',58000,'EUR', 'DE',50,'DE','L')
-    cls.database()
+    # cls.database()
     print(cls.get_predicted_res())
